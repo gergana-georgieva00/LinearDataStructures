@@ -8,6 +8,7 @@
     {
         private const int DEFAULT_CAPACITY = 4;
         private T[] items;
+        private int count;
 
         public List()
             : this(DEFAULT_CAPACITY) {
@@ -25,7 +26,7 @@
 
         public T this[int index] { get { this.ValidateIndex(index); return this.items[index]; } set => throw new NotImplementedException(); }
 
-        public int Count { get; private set; }
+        public int Count { get { return count; } private set { this.count = this.items.Length; } }
 
         public void Add(T item)
         {
